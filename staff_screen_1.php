@@ -97,7 +97,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
 
             //}
             $flag=false;
-            
+            $flag2=false;
                      
 
 $user = 'root';
@@ -136,16 +136,26 @@ if (mysqli_num_rows($result) > 0) {
   }
   if ($flag){
       echo "The Student's ID is ".$ids_from_database[$i];
-      $StudentID=$ids_from_database[$i];
-      $_SESSION["ID2Print"]=$StudentID;
-  }
+       }
   
   
   
 mysqli_close($mysqli);
  
 
-        }   
+        }
+         $max=count($ids_from_database);
+
+        for($i=0;$i<$max;$i++){
+            
+            if ($StudentID!=NULL and $StudentID==$ids_from_database[$i]){
+                
+                header("Location:http://localhost/PhpProject5/index.php");
+                 $_SESSION["ID2Print"]=$ids_from_database[$i];
+                
+                
+            }
+        }
 
         
         ?>
