@@ -1,8 +1,53 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
+-->
 <?php
+
 session_start();
         
         echo $_SESSION["ID2Print"];
+        if($_SESSION["ID2Print"]!=NULL){
+            
+            $user = 'root';
+$password = '';
+  
+$database = 'csl_test_data';
+  
+$servername='localhost:4306';
+$mysqli = new mysqli($servername, $user,
+                $password, $database);
 
+  
+// Checking for connections
+if (!$mysqli){
+    echo "Connection Unsuccessful!!!";
+}
+   
+$sql="SELECT Student_ID,NAME,Age,Date_of_Birth,Phone,Address,City FROM studentinfo where Student_ID='".$_SESSION["ID2Print"]."'";
+$result=mysqli_query($mysqli,$sql);
+$toprint=[];
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+      
+      array_push($toprint,$row["Student_ID"]);
+      array_push($toprint,$row["NAME"]);
+      array_push($toprint,$row["Date_of_Birth"]);
+      array_push($toprint,$row["Phone"]);
+      array_push($toprint,$row["Address"]);
+      array_push($toprint,$row["City"]);
+
+      
+      }
+  }
+  $max=count($toprint);
+  
+
+
+
+            
+echo $max;
 echo"
 <html>
     <style>
@@ -55,36 +100,17 @@ th, td {
     <th>Column 4</th>
     <th>Column 5</th>
     <th>Column 6</th>
-    <th>Column 7</th>
-    <th>Column 8</th>
-    <th>Column 9</th>
-    <th>Column 10</th>
   </tr>
   <tr>
-    <td>Row 1, Column 1</td>
-    <td>Row 1, Column 2</td>
-    <td>Row 1, Column 3</td>
-    <td>Row 1, Column 4</td>
-    <td>Row 1, Column 5</td>
-    <td>Row 1, Column 6</td>
-    <td>Row 1, Column 7</td>
-    <td>Row 1, Column 8</td>
-    <td>Row 1, Column 9</td>
-    <td>Row 1, Column 10</td>
+   ";
+for($i=0;$i<$var=count($toprint);$i++){
+    echo"<th>$toprint[$i]</th>";
+    
+    
+}
+echo"
   </tr>
-  <tr>
-    <td>Row 2, Column 1</td>
-    <td>Row 2, Column 2</td>
-    <td>Row 2, Column 3</td>
-    <td>Row 2, Column 4</td>
-    <td>Row 2, Column 5</td>
-    <td>Row 2, Column 6</td>
-    <td>Row 2, Column 7</td>
-    <td>Row 2, Column 8</td>
-    <td>Row 2, Column 9</td>
-    <td>Row 2, Column 10</td>
-  </tr>
-</table>
+    </table>
 
 	</main>
 </body>
@@ -92,6 +118,6 @@ th, td {
        
     </body>
 </html>";
-
+        }
         
                 
