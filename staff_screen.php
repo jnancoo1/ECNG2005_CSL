@@ -8,7 +8,7 @@
   }
 
   body {
-    font-family: "Arial", Sans-Serif;
+    font-family: 'Arial', Sans-Serif;
     background-color: #F0F8FF;
   }
 
@@ -118,31 +118,35 @@ button {
   text-align: center;
 
 }
-
+<?php
+session_start();
+if ($_SESSION['Checker']!=NULL){
+    
+echo"
 </style>
 
 </head>
 <body>
     <h1> CARAPACHAIMA EAST STAFF</h1>	
 	<main>
-            <form method="post"action="staff_screen2.php">
+            <form method='post'>
 		<table>
 			<tr>
-				<td><button type="submit"name="button1">PERSONAL DATA</button></td>
-				<td><button type="submit"button name="button2">STUDENT MARKS</button></td>
-				<td><button type="submit"button name="button3">DISCIPLINARY RECORD</button></td>
+				<td><button type='submit'name='button1'>PERSONAL DATA</button></td>
+				<td><button type='submit'button name='button2'>STUDENT MARKS</button></td>
+				<td><button type='submit'button name='button3'>DISCIPLINARY RECORD</button></td>
 			</tr>
 			<tr>
-				<td><button type="submit"button name="button4">MAKE NEW ENTRY</button></td>
-				<td><button type="submit"button name="button5">UPDATE RECORD</button></td>
-				<td><button type="subbmit"button name="button6">LOG OUT</button></td>
+				<td><button type='submit'button name='button4'>MAKE NEW ENTRY</button></td>
+				<td><button type='submit'button name='button5'>UPDATE RECORD</button></td>
+				<td><button type='subumit'button name='button6'>LOG OUT</button></td>
 			</tr>
 		</table>
                 </form>
 	</main>
-</body>
+</body>"
+;
 
-<?php
 if (isset($_POST['button1'])){
     
     echo"Button 1 Pressed";
@@ -150,31 +154,30 @@ if (isset($_POST['button1'])){
 }
 if (isset($_POST['button2'])){
     
-    echo"Button 2 Pressed";
+    echo'Button 2 Pressed';
     
 }
 if (isset($_POST['button3'])){
     
-    echo"Button 3 Pressed";
+    echo'Button 3 Pressed';
     
 }
 if (isset($_POST['button4'])){
     
-    echo"Button 4 Pressed";
+    echo'Button 4 Pressed';
     
 }
 if (isset($_POST['button5'])){
     
-    echo"Button 5 Pressed";
+    echo'Button 5 Pressed';
     
 }
 if (isset($_POST['button6'])){
     
-   header("Location:http://localhost/PhpProject2/login_screen.php");
+   header('Location:http://localhost/PhpProject2/index.php');
     
 }
+} 
 
+echo"</html>";
 
-
-?>
-</html>
