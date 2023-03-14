@@ -17,6 +17,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
             
             
         }
+        table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+  border: 1px solid black;
+}
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  border: 1px solid black;
+}
+
+td {
+  border: 1px solid black;
+  padding: 10px;
+  text-align: left;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+  border: 1px solid black;
+}
         h1{
             text-align: center;
             
@@ -40,16 +66,7 @@ main{
   height: 100vh; /* adjust this to fit your needs */
 }
  
-    table {
-  border-collapse: collapse;
-  border: 1px solid black;
-}
-
-
-th, td ,tr{
-  border: 1px solid black;
-  padding: 8px;
-}
+    
         </style>
         <?php
         session_start();
