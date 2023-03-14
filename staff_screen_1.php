@@ -1,183 +1,157 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<title>Sample Webpage</title>
-<style>
-  h1 {
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edit this template
+-->
+
+ <head>
+        <meta charset="UTF-8">
+        <title>Login_Page</title>
+    
+     <style>
+     h1 {text-align: center;}
+     body{
+         font-family: "Arial", Sans-Serif;
+         background-color:#F0F8FF;}
+     form{
+    width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+
     text-align: center;
-  }
-
-  body {
-    font-family: 'Arial', Sans-Serif;
-    background-color: #F0F8FF;
-  }
-
-  table {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  table {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 60%;
-    width: 60%;
-    margin-top: 50px;
-  }
-
-  /* This will center the table on the page */
-
-  header {
-    background-color: #1AA7EC;
-    color: #1AA7EC;
-    padding: 10px;
-  }
-
-  nav ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    position: relative;
-    float: left;
-  }
-
-  nav ul li {
-    display: inline-block;
-    background-color: #1AA7EC;
-  }
-
-  nav a {
-    display: block;
-    padding: 0 10px;
-    color: black;
-    font-size: 18px;
-    line-height: 60px;
-    text-decoration: none;
-  }
-
-  nav ul ul {
-    display: none;
+    margin: auto;
     position: absolute;
-    top: 60px;
-  }
-
-  nav ul li:hover>ul {
-    display: inherit;
-  }
-
-  nav ul ul li {
-    width: 200px;
-    float: none;
-    display: list-item;
-    position: relative;
-    background-color: #333;
-  }
-
-  nav ul ul ul li {
-    position: relative;
-    top: -60px;
-    left: 200px;
-  }
-
-  nav li:hover {
-    background-color: #2c3e50;
-  }
-
-  nav a:hover {
-    color: #fff;
-  }
-
-  table {
-  width: 80vw;
-  height: 40vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+     top: 50%;
+     -ms-transform: translateY(50%);
+     transform: translateY(50%);
+     right: 50%;
+     -ms-transform: translateX(50%);
+     transform: translateX(50%);
+     }
+     input {
+  display: block; /* make the input a block element */
+  width: 100%; /* set the input width to 100% of the parent container */
+  padding: 5px; /* add some padding to the input */
+  box-sizing: border-box; /* include padding and border in the input's width */
 }
 
-button {
-  width: 20vw;
-  height: 10vh;
-  background-color: #1AA7EC;
-  border-style: solid;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  border: black;
-  color:black;
-  padding: 2vh 5vw;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 2.5vh;
-  text-align: center;
+     label {
+  display: block; /* make the label a block element */
+  margin-bottom: 5px; /* add some spacing between the label and input */
+}
 
-}
-<?php
-session_start();
-if ($_SESSION['Checker']!=NULL){
-    
-echo"
-</style>
+     </style>
+     
+    </head>
+    <h1>Carapachaima East Secondary<br>Login Screen</h1>
+    <body>      
+        <form method ="post">
+        <br>Please enter The ID or Name of the student whose records you would like to view Password<br>
+        <br>If the name is entered the ID will be output <br>
+        <br>The record can only be accessed by the ID<br>
+           <Label for "ID"> ID:</label>
+           <input type="number" id="ID" name="ID"><br>
+           <div>
+           </div>
+           <br>
+           <Label for "Password">Name</label>
+           <input type="text" id="Name" name="Name"><br>
+           <button type="submit" button onclick="myFunction()" name="submit">Submit!</button>
+           <a href="">
+  </button>
+</a>
 
-</head>
-<body>
-    <h1> CARAPACHAIMA EAST STAFF</h1>	
-	<main>
-            <form method='post'>
-		<table>
-			<tr>
-				<td><button type='submit'name='button1'>PERSONAL DATA</button></td>
-				<td><button type='submit'button name='button2'>STUDENT MARKS</button></td>
-				<td><button type='submit'button name='button3'>DISCIPLINARY RECORD</button></td>
-			</tr>
-			<tr>
-				<td><button type='submit'button name='button4'>MAKE NEW ENTRY</button></td>
-				<td><button type='submit'button name='button5'>UPDATE RECORD</button></td>
-				<td><button type='subumit'button name='button6'>LOG OUT</button></td>
-			</tr>
-		</table>
-                </form>
-	</main>
-</body>"
-;
+          </form>
+          <?php
+          session_start();
 
-if (isset($_POST['button1'])){
-    
-    echo"Button 1 Pressed";
-    
-}
-if (isset($_POST['button2'])){
-    
-    echo'Button 2 Pressed';
-    
-}
-if (isset($_POST['button3'])){
-    
-    echo'Button 3 Pressed';
-    
-}
-if (isset($_POST['button4'])){
-    
-    echo'Button 4 Pressed';
-    
-}
-if (isset($_POST['button5'])){
-    
-    echo'Button 5 Pressed';
-    
-}
-if (isset($_POST['button6'])){
-    
-   header('Location:http://localhost/PhpProject2/index.php');
-    
-}
-} 
+           $_SESSION["Checker"]=NULL;
+           $_SESSION["ID"]=NULL;
+          
+          session_start();
+          
+          
+          $ID=NULL;
+          $Name=NULL;
+          $IDs=[];
 
-echo"</html>";
 
+  
+        if(isset($_POST['submit'])) {
+        
+            
+        $ID =$_POST['ID'];            
+        $Name=$_POST['Name'];
+                
+
+             
+
+
+          $flag=false;
+            
+                     
+
+$user = 'root';
+$password = '';
+  
+$database = 'csl_test_data';
+  
+$servername='localhost:4306';
+$mysqli = new mysqli($servername, $user,
+                $password, $database);
+  
+// Checking for connections
+if (!$mysqli){
+    echo "Connection Unsuccessful!!!";
+}
+
+if($Name!=NULL and $ID==NULL){
+$sql = "SELECT StudentID, Name FROM studentinfo WHERE Name='".$Name."'";
+$result = mysqli_query($mysqli, $sql);
+
+if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+    array_push($IDs,$row["StudentID"]);
+        }
+    echo"The ID for this student is".$IDs[0];    
+} else {
+  echo "0 results";
+}
+}
+else if ($ID!=NULL){
+    $ids2=[];
+    $sql = "SELECT StudentID, Name FROM studentinfo";
+    $result = mysqli_query($mysqli, $sql);
+     if (mysqli_num_rows($result) > 0) {
+  while($row = mysqli_fetch_assoc($result)) {
+   
+    if($ID==$row["StudentID"]){
+        $flag=true;
+        break;
+        
+    }
+    
+    
+    }
+    if($flag){
+        
+    $_SESSION["ID"]=$ID;
+    header("Location:http://localhost/PhpProject5/index.php");
+    }
+    else{echo"INVALID";}
+}
+    
+}
+else{
+    echo"No input";
+}
+
+mysqli_close($mysqli);
+           // header("Location: http://localhost/PhpProject1/index.php");
+            exit();
+        }
+        ?>
+    </body>
+   </html>
