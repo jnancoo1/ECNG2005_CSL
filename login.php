@@ -67,25 +67,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Project/PHP/PHPProject.php to edi
           
           
           
-
+          $username=NULL;
+          $paswd=NULL;
 
 
   
         if(isset($_POST['submit'])) {
-            $username =$_POST['ID'];            
-            $paswd=$_POST['Password'];
-            //echo $username;
-            //echo$paswd;
-            //$CSVfile=fopen("C:\Users\jonat\OneDrive\Desktop\login_data.csv","r");
-            //while(!feof($CSVfile)){
-              //  $data[]=fgetcsv($CSVfile,100);
+        
+            
+        $username =$_POST['ID'];            
+        $paswd=$_POST['Password'];
                 
 
              
 
 
-            //}
-            $flag=false;
+          $flag=false;
             
                      
 
@@ -103,13 +100,13 @@ if (!$mysqli){
     echo "Connection Unsuccessful!!!";
 }
 
-$sql = "SELECT ID, Password FROM logininfo";
+$sql = "SELECT StudentID, Name FROM studentinfo";
 $result = mysqli_query($mysqli, $sql);
 
 if (mysqli_num_rows($result) > 0) {
   while($row = mysqli_fetch_assoc($result)) {
     
-      if($username==$row["ID"] and $paswd==$row["Password"]){
+      if($username==$row["StudentID"] and $paswd==$row["Name"]){
                     $flag=true;
                     break;
                 }
@@ -122,9 +119,9 @@ mysqli_close($mysqli);
 
 
                 
-                     if ($flag){
-                header("Location:http://localhost/PhpProject1/staff_screen2.php");
-
+                   if ($flag){
+               // header("Location:http://localhost/PhpProject1/staff_screen2.php");
+                         echo"VALID";
             }
             else{
                 echo "<p style='color:red;'>";
@@ -135,8 +132,7 @@ mysqli_close($mysqli);
                 
                
 
-            }
-            
+          
        
                 
             
@@ -144,9 +140,7 @@ mysqli_close($mysqli);
 
            // header("Location: http://localhost/PhpProject1/index.php");
             exit();
-
-
-        
+        }
         ?>
     </body>
    </html>
